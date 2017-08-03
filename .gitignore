@@ -1,0 +1,11 @@
+*.dat
+*.conf
+*.log
+*.pid
+balance
+pivx-cli
+pivxd
+backups/
+blocks/
+chainstate/
+database/
