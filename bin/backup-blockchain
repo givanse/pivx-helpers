@@ -8,4 +8,6 @@ tarname='blockchain_backup_'$timestamp'.tar'
 
 tar --force-local -cvf $tarname ~/.pivx/blocks ~/.pivx/chainstate 
 
+sha256sum $tarname
+
 exit 0

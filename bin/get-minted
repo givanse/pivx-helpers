@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# It tells you how many coins were minted since the last time you checked.
+# If you immediately check again the result will be zero until new coins are minted.
+
 set -e
 
 pivxcli=~/.pivx/pivx-cli
