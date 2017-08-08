@@ -8,6 +8,7 @@
 set -e
 
 read -s -p 'wallet passphrase: ' passphrase 
+echo ''
 
 timeout=999999999 #300 years
 anonymizeonly=true

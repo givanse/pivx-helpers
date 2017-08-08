@@ -20,14 +20,15 @@ blockNumber=`getBlockNumber`
 localBlockHash=`getLocalBlockHash $blockNumber`
 remoteBlockHash=`getRemoteBlockHash $blockNumber`
 
-echo '            block: '$blockNumber
-echo ' block hash local: '$localBlockHash
-echo 'block hash remote: '$remoteBlockHash
+echo '      block: '$blockNumber
+echo ' block hash'
+echo '      local: '$localBlockHash
+echo 'pivxscan.io: '$remoteBlockHash
 
 if [ $localBlockHash == $remoteBlockHash ]; then
-  echo 'GOOD: still on main'
+  echo '       GOOD: still on main'
 else
-  echo 'BAD: you are on a fork, got to re-sync'
+  echo '        BAD: you are on a fork, got to re-sync'
 fi
 
 exit 0
