@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# verify that your wallet is still on the main chain
+
 set -e
 
 pivxcli=~/.pivx/pivx-cli
