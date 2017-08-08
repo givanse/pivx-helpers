@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+timestamp=`date +"%d:%m:%Y_%T_%Z"`
+
+tarname='blockchain_backup_'$timestamp'.tar'
+
+tar --force-local -cvf $tarname ~/.pivx/blocks ~/.pivx/chainstate 
+
+exit 0
