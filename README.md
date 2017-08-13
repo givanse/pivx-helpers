@@ -11,7 +11,6 @@ echo 'export PATH=$HOME/.pivx/bin:$PATH' >> ~/.bash_paths
 source ~/.bash_profile
 ```
 
-# pivx-cli docs:
-# https://pivx.freshdesk.com/support/solutions/articles/30000020865-debug-console-command-line
-
-[PIVX Rewards Calculator](http://pivx.cryptonode.co/)
+Links:
+ - [Debug Console/ Command-line](https://pivx.freshdesk.com/support/solutions/articles/30000020865-debug-console-command-line)
+ - [PIVX Rewards Calculator](http://pivx.cryptonode.co/)
