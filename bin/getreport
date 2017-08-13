@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Example output:
+#
+# {
+#    "validtime" : true,
+#    "haveconnections" : true,
+#    "walletunlocked" : true,
+#    "mintablecoins" : true,
+#    "enoughcoins" : true,
+#    "mnsync" : true,
+#    "staking status" : true
+#}
+#{
+#  "IsBlockchainSynced": true
+#}
+#Did it fork?
+#      block: 771478
+# block hash
+#      local: 00f8fec246f7e6e578ce7142d4c59bba9888aeab1918ed98f8e43fe9ee2f178e
+#pivxscan.io: 00f8fec246f7e6e578ce7142d4c59bba9888aeab1918ed98f8e43fe9ee2f178e
+#       GOOD: still on main
+#{
+#  "blocks": 771478,
+#  "connections": 16,
+#  "testnet": false,
+#  "errors": ""
+#}
+#   last: 1
+#current: 3.4
+# minted: 2.4
+
+set -e
+
+pivx-cli getstakingstatus
+
+pivx-cli mnsync status | jq '{IsBlockchainSynced: .IsBlockchainSynced}'
+
+did-it-fork
+
+pivx-cli getinfo | jq '{blocks: .blocks, connections: .connections, testnet: .testnet, errors: .errors}'
+
+getmintedbalance
+
+exit 0

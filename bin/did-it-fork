@@ -2,7 +2,18 @@
 
 # verify that your wallet is still on the main chain
 
+# Example output:
+#
+#Did it fork?
+#      block: 771478
+# block hash
+#      local: 00f8fec246f7e6e578ce7142d4c59bba9888aeab1918ed98f8e43fe9ee2f178e
+#pivxscan.io: 00f8fec246f7e6e578ce7142d4c59bba9888aeab1918ed98f8e43fe9ee2f178e
+#       GOOD: still on main
+
 set -e
+
+echo 'Did it fork?'
 
 pivxcli=~/.pivx/pivx-cli
 
@@ -15,7 +26,7 @@ function getLocalBlockHash() {
 }
 
 function getRemoteBlockHash() {
-  curl -# 'http://pivxscan.io/api/getblockhash?index='$1
+  curl -s 'http://pivxscan.io/api/getblockhash?index='$1
 }
 
 blockNumber=`getBlockNumber`

@@ -3,6 +3,12 @@
 # It tells you how many coins were minted since the last time you checked.
 # If you immediately check again the result will be zero until new coins are minted.
 
+# Example output:
+#
+#   last: 1
+#current: 3.4
+# minted: 2.4
+
 set -e
 
 pivxcli=~/.pivx/pivx-cli
@@ -11,8 +17,9 @@ prev=`head -n 1 $HOME/.pivx/balance`;
 curr=`$pivxcli getbalance`;
 echo $curr > $HOME/.pivx/balance;
 new=$(bc <<< $curr-$prev);
-echo 'current: '$curr;
+
 echo '   last: '$prev;
-echo "    new: $new";
+echo 'current: '$curr;
+echo " minted: $new";
 
 exit 0
