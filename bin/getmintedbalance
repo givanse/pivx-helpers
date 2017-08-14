@@ -11,12 +11,27 @@
 
 set -e
 
-pivxcli=~/.pivx/pivx-cli
+balanceFile=~/.pivx/balance
 
-prev=`head -n 1 $HOME/.pivx/balance`;
-curr=`$pivxcli getbalance`;
-echo $curr > $HOME/.pivx/balance;
+function readBalanceFile() {
+  local default=$1
+
+  if [ ! -f $balanceFile ]; then
+    echo $default > $balanceFile
+  fi
+
+  head -n 1 $balanceFile
+}
+
+function updateBalanceFile() {
+  echo $1 > $balanceFile; 
+}
+
+curr=`pivx-cli getbalance`;
+prev=`readBalanceFile $curr`;
 new=$(bc <<< $curr-$prev);
+
+updateBalanceFile $curr
 
 echo '   last: '$prev;
 echo 'current: '$curr;
