@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+pivxcli=~/.pivx/pivx-cli
+
+unspent=`$pivxcli getaddressesbyaccount '' | $pivxcli listunspent | jq '.[] | .amount'`
+
+total=0
+for amount in $unspent; do
+  total=$(bc <<< $total+$amount);
+done
+
+echo 'unspent: '$total
+
+exit 0

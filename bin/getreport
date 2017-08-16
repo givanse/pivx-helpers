@@ -40,6 +40,8 @@ did-it-fork
 
 pivx-cli getinfo | jq '{blocks: .blocks, connections: .connections, testnet: .testnet, errors: .errors}'
 
+getunspent
+
 getmintedbalance
 
 exit 0
