@@ -10,8 +10,8 @@ echo ''
 timeout=999999999 #300 years
 anonymizeonly=true
 
-./pivx-cli walletpassphrase $passphrase $timeout $anonymizeonly 
+pivx-cli walletpassphrase $passphrase $timeout $anonymizeonly 
 
-./pivx-cli getinfo
+pivx-cli getinfo
 
 exit 0

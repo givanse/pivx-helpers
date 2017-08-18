@@ -2,11 +2,18 @@
 
 set -e
 
+if pgrep -x 'pivxd' > /dev/null; then
+  pivx-cli stop
+fi
+
 timestamp=`date +"%d:%m:%Y_%T_%Z"`
 
-tarname='blockchain_backup_'$timestamp'.tar'
+tarname='blockchain_backup_'$timestamp'.tar.gz'
 
-tar --force-local -cvf $tarname ~/.pivx/blocks ~/.pivx/chainstate 
+tar -zcv --force-local \
+--exclude '**/*LOG*' \
+--exclude '**/*LOCK' \
+-f $tarname ~/.pivx/blocks ~/.pivx/chainstate
 
 sha256sum $tarname
 
