@@ -25,20 +25,29 @@ function getLocalBlockHash() {
   $pivxcli getblockhash $1
 }
 
-function getRemoteBlockHash() {
-  curl -s 'http://pivxscan.io/api/getblockhash?index='$1
+function getRemoteBlockHashPresstab() {
+  local blockHeight=$1
+  local url='http://www.presstab.pw/phpexplorer/PIVX/block.php?searchinput='
+  curl -s $url$blockHeight | grep "<th>Block Hash:" | sed "s/^.*<td>\(.*\)<\/td>.*$/\1/"
 }
 
-blockNumber=`getBlockNumber`
-localBlockHash=`getLocalBlockHash $blockNumber`
-remoteBlockHash=`getRemoteBlockHash $blockNumber`
+function getRemoteBlockHashPivxscan() {
+  local blockHeight=$1
+  curl -s 'http://pivxscan.io/api/getblockhash?index='$blockHeight
+}
 
-echo '      block: '$blockNumber
+blockHeight=`getBlockNumber`
+localBlockHash=`getLocalBlockHash $blockHeight`
+presstabBlockHash=`getRemoteBlockHashPresstab $blockHeight`
+pivxscanBlockHash=`getRemoteBlockHashPivxscan $blockHeight`
+
+echo ' block height: '$blockHeight
 echo ' block hash'
-echo '      local: '$localBlockHash
-echo 'pivxscan.io: '$remoteBlockHash
+echo '        local: '$localBlockHash
+echo 'presstab/pivx: '$presstabBlockHash
+echo '  pivxscan.io: '$pivxscanBlockHash
 
-if [ $localBlockHash == $remoteBlockHash ]; then
+if [ $localBlockHash == $presstabBlockHash ]; then
   echo '       GOOD: still on main'
 else
   echo '        BAD: you are on a fork, got to re-sync'
