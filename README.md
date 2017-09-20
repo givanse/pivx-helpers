@@ -14,4 +14,5 @@ source ~/.bash_profile
 Links:
  - [Debug Console/ Command-line](https://pivx.freshdesk.com/support/solutions/articles/30000020865-debug-console-command-line)
   - `pivx-cli help`
- - [PIVX Rewards Calculator](http://pivx.cryptonode.co/)
+ - PIVX Rewards Calculator [pivx.cryptonode.co](http://pivx.cryptonode.co/)
+ - Block explorer [presstab.pw/phpexplorer/PIVX](http://www.presstab.pw/phpexplorer/PIVX/index.php)
