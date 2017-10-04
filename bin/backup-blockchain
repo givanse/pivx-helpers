@@ -2,19 +2,44 @@
 
 set -e
 
-if pgrep -x 'pivxd' > /dev/null; then
+function isDaemonRunning() {
+  [[ $(pgrep -x 'pivxd') ]]
+}
+
+function makeBlockchainTar() {
+  local timestamp=`date +"%d:%m:%Y_%T_%Z"`
+
+  local tarname='blockchain_backup_'$timestamp'.tar.gz'
+
+  tar -zcv --force-local \
+  --exclude '**/*LOG*' \
+  --exclude '**/*LOCK' \
+  -f $tarname ~/.pivx/blocks ~/.pivx/chainstate
+
+  sha256sum $tarname
+}
+
+####
+
+wasRunning=false
+
+if isDaemonRunning; then
+  echo 'stopping pivxd'
   pivx-cli stop
+  wasRunning=true
+else
+  echo 'pivxd is not running'
 fi
 
-timestamp=`date +"%d:%m:%Y_%T_%Z"`
+while isDaemonRunning; do
+  sleep 1
+  echo 'waiting for pivxd to stop'
+done
 
-tarname='blockchain_backup_'$timestamp'.tar.gz'
+if [ $wasRunning ]; then
+  echo 'pivxd stopped'
+fi
 
-tar -zcv --force-local \
---exclude '**/*LOG*' \
---exclude '**/*LOCK' \
--f $tarname ~/.pivx/blocks ~/.pivx/chainstate
-
-sha256sum $tarname
+makeBlockchainTar
 
 exit 0
