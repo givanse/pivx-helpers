@@ -11,6 +11,6 @@ for amount in $unspent; do
   total=$(bc <<< $total+$amount);
 done
 
-echo 'unspent: '$total
+echo $total
 
 exit 0
