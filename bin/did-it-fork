@@ -39,13 +39,13 @@ function getRemoteBlockHashPivxscan() {
 blockHeight=`getBlockNumber`
 localBlockHash=`getLocalBlockHash $blockHeight`
 presstabBlockHash=`getRemoteBlockHashPresstab $blockHeight`
-pivxscanBlockHash=`getRemoteBlockHashPivxscan $blockHeight`
+#pivxscanBlockHash=`getRemoteBlockHashPivxscan $blockHeight`
 
 echo ' block height: '$blockHeight
 echo ' block hash'
 echo '        local: '$localBlockHash
 echo 'presstab/pivx: '$presstabBlockHash
-echo '  pivxscan.io: '$pivxscanBlockHash
+#echo '  pivxscan.io: '$pivxscanBlockHash
 
 if [ $localBlockHash == $presstabBlockHash ]; then
   echo '       GOOD: still on main'

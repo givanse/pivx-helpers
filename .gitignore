@@ -4,9 +4,14 @@
 *.pid
 *.zip
 balance
-pivx-cli
-pivxd
 backups/
 blocks/
 chainstate/
 database/
+sporks/
+zerocoin/
+
+# pivx binaries
+pivx-cli
+pivxd
+pivx-tx

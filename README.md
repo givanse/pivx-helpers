@@ -1,6 +1,8 @@
-[NOTICE: 8/7/2017 New wallet v2.3.0 links updated. Please update all your wallets by August 21, 2017.](https://pivx.org/get-pivx/wallet/)
+[PIVX Core v3.0.0 is a mandatory update for all users.](https://github.com/PIVX-Project/PIVX/releases/tag/v3.0.0)
 
-Download and use:
+> Users updating from a previous version after the 16th of October will require a full resync of their local blockchain from either the P2P network or by way of the bootstrap.
+
+# Download and use:
 
 ```
 cd ~/.pivx-cli
@@ -9,6 +11,25 @@ unzip master.zip
 mv pivx-helpers-master/bin .
 echo 'export PATH=$HOME/.pivx/bin:$PATH' >> ~/.bash_paths
 source ~/.bash_profile
+```
+
+# Upgrading the wallet
+
+Ex:
+```
+# stop the daemon
+pivx-cli stop
+
+# use the link that is appropriate for your architecture
+wget https://github.com/PIVX-Project/PIVX/releases/download/v3.0.0/pivx-3.0.0-arm-linux-gnueabihf.tar.gz
+tar -xvzf pivx-3.0.0-arm-linux-gnueabihf.tar.gz
+cp pivx-3.0.0/bin/* ~/.pivx
+
+# restart the daemon
+~/.pivx/pivxd 
+
+# start staking
+~/.pivx/bin/unlock-for-staking
 ```
 
 Links:
