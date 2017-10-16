@@ -27,6 +27,4 @@ if [ $wasRunning ]; then
   echo 'pivxd stopped'
 fi
 
-echo 'blockchain data deleted'
-
 exit 0
