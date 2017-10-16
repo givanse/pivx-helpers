@@ -2,10 +2,11 @@
 
 > Users updating from a previous version after the 16th of October will require a full resync of their local blockchain from either the P2P network or by way of the bootstrap.
 
-# Download and use:
+# Node setup
 
 ```
-cd ~/.pivx-cli
+mkdir ~/.pivx
+cd ~/.pivx
 wget https://github.com/givanse/pivx-helpers/archive/master.zip
 unzip master.zip
 mv pivx-helpers-master/bin .

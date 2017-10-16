@@ -2,10 +2,6 @@
 
 set -e
 
-function isDaemonRunning() {
-  [[ $(pgrep -x 'pivxd') ]]
-}
-
 function makeBlockchainTar() {
   local timestamp=`date +"%d:%m:%Y_%T_%Z"`
 
@@ -19,26 +15,7 @@ function makeBlockchainTar() {
   sha256sum $tarname
 }
 
-####
-
-wasRunning=false
-
-if isDaemonRunning; then
-  echo 'stopping pivxd'
-  pivx-cli stop
-  wasRunning=true
-else
-  echo 'pivxd is not running'
-fi
-
-while isDaemonRunning; do
-  sleep 1
-  echo 'waiting for pivxd to stop'
-done
-
-if [ $wasRunning ]; then
-  echo 'pivxd stopped'
-fi
+pivxd-stop
 
 makeBlockchainTar
 

@@ -48,9 +48,9 @@ echo 'presstab/pivx: '$presstabBlockHash
 #echo '  pivxscan.io: '$pivxscanBlockHash
 
 if [ $localBlockHash == $presstabBlockHash ]; then
-  echo '       GOOD: still on main'
+  echo '         GOOD: still on main'
 else
-  echo '        BAD: you are on a fork, got to re-sync'
+  echo '          BAD: you are on a fork, got to re-sync'
 fi
 
 exit 0

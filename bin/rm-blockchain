@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+function rmBlockchain() {
+  rm -rfv  ~/.pivx/blocks
+  rm -rfv ~/.pivx/chainstate
+}
+
+pivxd-stop
+
+rmBlockchain
+
+exit 0
