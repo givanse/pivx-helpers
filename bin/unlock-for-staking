@@ -12,6 +12,6 @@ anonymizeonly=true
 
 pivx-cli walletpassphrase $passphrase $timeout $anonymizeonly 
 
-pivx-cli getstackingstatus
+pivx-cli getstakingstatus
 
 exit 0

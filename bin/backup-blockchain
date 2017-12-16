@@ -10,7 +10,7 @@ function makeBlockchainTar() {
   tar -zcv --force-local \
   --exclude '**/*LOG*' \
   --exclude '**/*LOCK' \
-  -f $tarname ~/.pivx/blocks ~/.pivx/chainstate
+  -f $tarname ~/.pivx/blocks ~/.pivx/chainstate ~/.pivx/sporks ~/.pivx/zerocoin
 
   sha256sum $tarname
 }
