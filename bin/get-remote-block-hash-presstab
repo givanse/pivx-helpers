@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+# Usage example:
+#   get-remote-block-hash-presstab 985100
+#
+
+blockHeight=$1
+url='http://www.presstab.pw/phpexplorer/PIVX/block.php?searchinput='
+curl -s $url$blockHeight | grep "<th>Block Hash:" | sed "s/^.*<td>\(.*\)<\/td>.*$/\1/"
+
+exit 0
