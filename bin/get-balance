@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+# Unlock the wallet first
+
+echo ' balance: '`pivx-cli getbalance`
+
+echo 'zerocoin: '`pivx-cli getzerocoinbalance`
+
+exit 0
