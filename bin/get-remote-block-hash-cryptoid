@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+# Usage example:
+#   get-remote-block-hash-presstab 985100
+#
+
+blockHeight=$1
+
+url='https://chainz.cryptoid.info/pivx/api.dws?q=getblockhash&height='$blockHeight
+
+curl -s $url | sed "s/\"//g"
+
+exit 0
