@@ -33,16 +33,24 @@ function getRemoteBlockHashPivxscan() {
 blockHeight=`getBlockNumber`
 localBlockHash=`getLocalBlockHash $blockHeight`
 presstabBlockHash=`get-remote-block-hash-presstab $blockHeight`
+blockHashCryptoId=`get-remote-block-hash-cryptoid $blockHeight`
 #pivxscanBlockHash=`getRemoteBlockHashPivxscan $blockHeight`
 
 echo ' block height: '$blockHeight
 echo ' block hash'
 echo '        local: '$localBlockHash
 echo 'presstab/pivx: '$presstabBlockHash
-#echo '  pivxscan.io: '$pivxscanBlockHash
+echo 'cryptoid/pivx: '$blockHashCryptoId
+#echo '  pivxscan.io: '$pivxscanBlockHash'
 
 if [ $localBlockHash == $presstabBlockHash ]; then
-  echo '         GOOD: still on main'
+  echo '         GOOD: synced with presstab'
+else
+  echo '          BAD: you are on a fork, got to re-sync'
+fi
+
+if [ $localBlockHash == $blockHashCryptoId ]; then
+  echo '         GOOD: synced with cryptoid'
 else
   echo '          BAD: you are on a fork, got to re-sync'
 fi
