@@ -3,6 +3,7 @@
 *.log
 *.pid
 *.zip
+.lock
 balance
 backups/
 blocks/
@@ -15,3 +16,6 @@ zerocoin/
 pivx-cli
 pivxd
 pivx-tx
+pivx-qt
+test_pivx
+test_pivx-qt

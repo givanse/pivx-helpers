@@ -13,4 +13,6 @@ pivxd-stop
 
 rmBlockchain
 
+echo 'blockchain files removed'
+
 exit 0
