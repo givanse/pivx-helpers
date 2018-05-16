@@ -5,6 +5,7 @@
 *.zip
 .lock
 balance
+balancezpiv
 backups/
 historic-backups
 blocks/
