@@ -6,6 +6,7 @@
 .lock
 balance
 backups/
+historic-backups
 blocks/
 chainstate/
 database/
