@@ -1,6 +1,3 @@
-[PIVX Core v3.0.0 is a mandatory update for all users.](https://github.com/PIVX-Project/PIVX/releases/tag/v3.0.0)
-
-> Users updating from a previous version after the 16th of October will require a full resync of their local blockchain from either the P2P network or by way of the bootstrap.
 
 # Node setup
 
