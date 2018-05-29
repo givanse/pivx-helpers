@@ -1,8 +1,5 @@
-[PIVX Core v3.0.0 is a mandatory update for all users.](https://github.com/PIVX-Project/PIVX/releases/tag/v3.0.0)
 
-> Users updating from a previous version after the 16th of October will require a full resync of their local blockchain from either the P2P network or by way of the bootstrap.
-
-# Node setup
+## Node setup
 
 ```
 mkdir ~/.pivx
@@ -14,7 +11,7 @@ echo 'export PATH=$HOME/.pivx/bin:$PATH' >> ~/.bash_paths
 source ~/.bash_profile
 ```
 
-# Upgrading the wallet
+## Upgrading the wallet
 
 Ex:
 ```
@@ -33,8 +30,13 @@ cp pivx-3.0.0/bin/* ~/.pivx
 ~/.pivx/bin/unlock-for-staking
 ```
 
-Links:
+## Links
+
  - [Debug Console/ Command-line](https://pivx.freshdesk.com/support/solutions/articles/30000020865-debug-console-command-line)
   - `pivx-cli help`
  - PIVX Rewards Calculator [pivx.cryptonode.co](http://pivx.cryptonode.co/)
- - Block explorer [presstab.pw/phpexplorer/PIVX](http://www.presstab.pw/phpexplorer/PIVX/index.php)
+ - Block explorers
+  - http://www.presstab.pw/phpexplorer/PIVX/index.php
+  - https://chainz.cryptoid.info/pivx/
+ - [PIVX Mainboard](https://board.net/p/r.cf3dc6ba238931dc444ec10183ab3b05)
+
